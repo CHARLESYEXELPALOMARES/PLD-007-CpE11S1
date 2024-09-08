@@ -1,0 +1,23 @@
+#include<iostream>
+
+using std::cout;
+using std::endl;
+using std::cin;
+
+int main()
+{
+    int num1, num2, num3; //declare variables
+    
+    cout << "Enter three integers: " << endl;  //prompt user
+	cin >> num1 >> num2 >> num3;               //read values from keyboard
+	
+	//output the results
+	cout << "The sum is " << num1 + num2 + num3
+	     << "\nThe differences is " << num1 - num2 - num3
+	     << "\nThe product is " << num1 * num2 * num3
+	     << "\nThe qoutient is " << num1 / num2 / num3 << endl;
+	
+	return 0; //indicate successful termination
+	
+		
+}
