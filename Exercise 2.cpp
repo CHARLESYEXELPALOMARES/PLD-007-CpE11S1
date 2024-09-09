@@ -16,7 +16,7 @@ int main()
     difference = (x - y);
     product = (x * y);
     quotient = (x / y); 
-    remainder = (x & y);
+    remainder = (x % y);
     
     cout << "Sum: " << sum << endl;
     cout << "Difference: " << difference << endl;
