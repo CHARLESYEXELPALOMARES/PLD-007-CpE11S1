@@ -7,7 +7,7 @@ int main()
     int sum,difference,product,remainder;
     float quotient;
     
-	cout << "Input x: ";
+    cout << "Input x: ";
     cin >> x;
     cout << "Input y: ";
     cin >> y;
