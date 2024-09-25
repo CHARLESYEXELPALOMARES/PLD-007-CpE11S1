@@ -7,7 +7,7 @@ int main()
     //create a c++ program to determine if the gender is male or a female
     char c;
     
-    cout<<"Enter el género:";
+    cout<<"Enter el genero:";
     cin>>c;
     
 	switch(c)
