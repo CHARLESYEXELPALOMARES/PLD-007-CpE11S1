@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	
-    //create a c++ program to determine if alphabet is voweL or a consonant
+    //create a c++ program to determine if the gender is male or a female
     char c;
     
     cout<<"Enter el alfabeto:";
