@@ -30,7 +30,7 @@ int main()
 		 
 		 default:
 		       {
-		       	    cout<<"Neither of both gender";
+		       	    cout<<"Prefer not to state gender";
 		       	    break;
 			   }
 	}
