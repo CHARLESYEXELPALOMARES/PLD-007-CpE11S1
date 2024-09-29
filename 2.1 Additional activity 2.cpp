@@ -9,7 +9,7 @@ int main() {
     cin>>inputPin;
 
     if (inputPin != pin) {
-        cout<<"The PIN is incorrect; access is denied."<<endl;
+        cout<<"The PIN is incorrect, access is denied."<<endl;
         return 1;
     }
 
