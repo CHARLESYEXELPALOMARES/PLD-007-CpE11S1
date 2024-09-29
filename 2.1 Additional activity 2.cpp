@@ -43,7 +43,7 @@ int main() {
                 break;
 
             case 5: // Exit
-                cout<<"Thanks for accessing the ATM. Have a blessed day!!"<<endl;
+                cout<<"Thanks for accessing the ATM. Have a blessed day!"<<endl;
                 break;
 
             default:
