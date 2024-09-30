@@ -1,0 +1,135 @@
+Assignment 
+
+Assignment operations are crucial for storing and manipulating values in programming. The syntax differs among languages: for instance, Pascal uses :=, whereas C, C++, and Java utilize =.
+
+Typical uses of assignments include:
+Initialize a variable: count = 0
+Increment a counter: count += 1
+Accumulate values: sum += item
+Capture computation results: y = 3 * x + 4
+Swap two values:
+t = x
+x = y
+y = t
+
+It is important to remember that assignment is not commutative; for example, x = e is not equivalent to e = x. Additionally, variables need to be declared, and expressions must be defined in a way compatible with their types. The sequence of assignments is crucial, particularly in operations such as swapping.
+Grasping assignment operations is essential for successful programming.
+
+
+Additional Activities 
+
+Activity 1
+
+1. START
+
+2. DECLARE base AS FLOAT
+3. DECLARE height AS FLOAT
+4. DECLARE area AS FLOAT
+
+5. PRINT "Enter the rectangle's base:"
+6. INPUT base  // User inputs the base of the rectangle
+
+7. PRINT "Enter the rectangle's height:"
+8. INPUT height  // User inputs the height of the rectangle
+
+9. // Calculate the area using the formula A = (1/2) * base * height
+10. SET area = 0.5 * base * height
+
+11. PRINT "The rectangle has an area of:"  // Display the area message
+12. PRINT area  // Output the calculated area
+
+13. END
+
+Activity 2
+
+START
+
+// Step 1: Initialize variables
+DECLARE pin AS INTEGER = 1945
+DECLARE inputPin AS INTEGER
+DECLARE choice AS INTEGER
+DECLARE balance AS DOUBLE = 18000.0
+DECLARE amount AS DOUBLE
+
+// Step 2: Prompt user for PIN
+PRINT "Enter your PIN:"
+INPUT inputPin
+
+// Step 3: Verify the entered PIN
+IF inputPin != pin THEN
+    PRINT "The PIN is incorrect, access is denied."
+    RETURN 1 // End the program if the PIN is incorrect
+END IF
+
+// Step 4: Start ATM menu loop
+DO
+    // Step 5: Display ATM menu options
+    PRINT "\nATM Menu:"
+    PRINT "1. Withdraw"
+    PRINT "2. Balance Inquiry"
+    PRINT "3. Fund Transfer"
+    PRINT "4. Change PIN"
+    PRINT "5. Exit"
+    PRINT "Choose an option:"
+    INPUT choice
+
+    // Step 6: Process user choice
+    SWITCH choice
+        CASE 1: // Withdraw
+            // Step 6.1: Prompt for withdrawal amount
+            PRINT "Enter the amount you want to withdraw:"
+            INPUT amount
+            
+            // Step 6.2: Check if sufficient balance is available
+            IF amount <= balance THEN
+                balance = balance - amount // Deduct amount from balance
+                PRINT "Withdrawal successful."
+            ELSE
+                PRINT "Insufficient balance."
+            END IF
+            
+            // Step 6.3: Display new balance
+            PRINT "New balance: " + balance
+
+        CASE 2: // Balance Inquiry
+            // Step 6.4: Display current balance
+            PRINT "Current balance: " + balance
+
+        CASE 3: // Fund Transfer
+            // Step 6.5: Prompt for transfer amount
+            PRINT "Enter the amount you want to transfer:"
+            INPUT amount
+            
+            // Step 6.6: Check if sufficient balance is available
+            IF amount <= balance THEN
+                balance = balance - amount // Deduct amount from balance
+                PRINT "Transfer successful."
+            ELSE
+                PRINT "Insufficient balance."
+            END IF
+            
+            // Step 6.7: Display new balance
+            PRINT "New balance: " + balance
+
+        CASE 4: // Change PIN
+            // Step 6.8: Prompt for new PIN
+            PRINT "Please enter your new PIN:"
+            INPUT pin
+            PRINT "Your PIN has been changed successfully."
+
+        CASE 5: // Exit
+            // Step 6.9: Thank the user and exit
+            PRINT "Thanks for accessing the ATM. Have a blessed day!"
+        
+        DEFAULT:
+            // Step 6.10: Handle invalid choice
+            PRINT "Invalid choice. Try again."
+    END SWITCH
+
+// Step 7: Continue looping until user chooses to exit
+WHILE choice != 5
+
+END
+
+
+
