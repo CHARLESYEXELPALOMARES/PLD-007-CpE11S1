@@ -3,31 +3,30 @@ cpp
 using namespace std;
 
 int main() {
-    int grade, total = 0, counter = 0;
+    int total = 0; // Set total to zero
+    int gradeCounter = 1; // Set grade counter to one
+    int grade; // Variable to store the grade
 
-    // Processing phase
-    cout << "Enter the grades (enter -1 to end):" << endl;
+    // Loop to input grades for ten students
+    while (gradeCounter <= 10) {
+        cout << "Enter grade for student " << gradeCounter << ": ";
+        cin >> grade; // Input the next grade
 
-    while (true) {
-        cout << "Enter the grade: ";
-        cin >> grade;
-
-        // Check for sentinel value
-        if (grade == -1) {
-            break; // Exit the loop if sentinel is entered
+        // Check if the grade is in the valid range
+        if (grade < 0 || grade > 100) {
+            cout << "Please enter a valid grade (0-100)." << endl;
+            continue; // Skip the rest of the loop and ask for input again
         }
 
-        total += grade; // Add the grade to the total
-        counter++; // Increment the counter
+        total += grade; // Add the grade into the total
+        gradeCounter++; // Add one to the grade counter
     }
 
-    // Termination phase
-    if (counter != 0) {
-        double average = static_cast<double>(total) / counter; // Calculate the average
-        cout << "Class average is " << average << endl;
-    } else {
-        cout << "No grades were entered." << endl;
-    }
+    // Calculate the class average
+    double classAverage = static_cast<double>(total) / 10;
 
-    return 0; // Program ends
+    // Print the class average
+    cout << "The class average is: " << classAverage << endl;
+
+    return 0;
 }
