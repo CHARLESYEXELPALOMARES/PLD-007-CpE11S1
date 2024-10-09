@@ -1,67 +1,94 @@
 
-START
-
-  SET base_cost = 5.00
-  SET additional_cost_per_100g = 2.00
-  SET max_weight = 1000.0
-
-  PROMPT "Enter the weight of the parcel in grams (up to 1000g):"
-  READ weight
-
-  IF weight <= 0 THEN
-    PRINT "Invalid weight. Please enter a positive value."
-  ELSE IF weight > max_weight THEN
-    PRINT "Weight exceeds the maximum limit of 1000g."
-  ELSE
-    SET total_cost = base_cost // Start with base cost
-
-    IF weight > 300 THEN
-      // Calculate additional weight over 300g
-      SET additional_weight = weight - 300
-      // Calculate the number of 100g increments, rounding up
-      SET increments = CEIL(additional_weight / 100)
-      total_cost = total_cost + (increments * additional_cost_per_100g)
-    ENDIF
-
-    PRINT "The cost of sending the parcel is: P", total_cost
-  ENDIF
-
+BEGIN
+    WHILE true DO
+        DISPLAY "Choose a conversion:"
+        DISPLAY "(1) cm to inches"
+        DISPLAY "(2) inches to cm"
+        DISPLAY "(3) feet to meters"
+        DISPLAY "(4) meters to feet"
+        DISPLAY "(5) Exit"
+        
+        GET userChoice
+        
+        IF userChoice is 5 THEN
+            BREAK
+        
+        GET userInput
+        
+        IF userChoice is 1 THEN
+            convertedValue = userInput / 2.54
+            DISPLAY "Converted value: " + convertedValue + " inches"
+        ELSE IF userChoice is 2 THEN
+            convertedValue = userInput * 2.54
+            DISPLAY "Converted value: " + convertedValue + " cm"
+        ELSE IF userChoice is 3 THEN
+            convertedValue = userInput * 0.3048
+            DISPLAY "Converted value: " + convertedValue + " meters"
+        ELSE IF userChoice is 4 THEN
+            convertedValue = userInput / 0.3048
+            DISPLAY "Converted value: " + convertedValue + " feet"
+        ELSE
+            DISPLAY "Invalid choice. Please try again."
+        
+        DISPLAY "Do you want to convert another value? (yes/no)"
+        GET continueChoice
+        
+        IF continueChoice is "no" THEN
+            BREAK
+    END WHILE
 END
 
 
-
 #include <iostream>
-#include <cmath> // For ceil function
-
 using namespace std;
 
 int main() {
-    double weight;
-    const double base_cost = 5.00; // Cost for the first 300g
-    const double additional_cost_per_100g = 2.00; // Cost for each additional 100g
-    const double max_weight = 1000.0; // Maximum weight limit
+    int userChoice;
+    float userInput, convertedValue;
+    string continueChoice;
 
-    cout << "Enter the weight of the parcel in grams (up to 1000g): ";
-    cin >> weight;
+    do {
+        cout << "Choose a conversion:" << endl;
+        cout << "(1) cm to inches" << endl;
+        cout << "(2) inches to cm" << endl;
+        cout << "(3) feet to meters" << endl;
+        cout << "(4) meters to feet" << endl;
+        cout << "(5) Exit" << endl;
+        cin >> userChoice;
 
-    if (weight <= 0) {
-        cout << "Invalid weight. Please enter a positive value." << endl;
-    } else if (weight > max_weight) {
-        cout << "Weight exceeds the maximum limit of 1000g." << endl;
-    } else {
-        double total_cost = base_cost; // Start with the base cost
-
-        if (weight > 300) {
-            // Calculate additional weight over 300g
-            double additional_weight = weight - 300;
-            // Calculate the number of 100g increments, rounding up
-            int increments = static_cast<int>(ceil(additional_weight / 100));
-            total_cost += increments * additional_cost_per_100g;
+        if (userChoice == 5) {
+            break;
         }
 
-        cout << "The cost of sending the parcel is: P" << total_cost << endl;
-    }
+        cout << "Enter the value to convert: ";
+        cin >> userInput;
+
+        switch (userChoice) {
+            case 1:
+                convertedValue = userInput / 2.54;
+                cout << "Converted value: " << convertedValue << " inches" << endl;
+                break;
+            case 2:
+                convertedValue = userInput * 2.54;
+                cout << "Converted value: " << convertedValue << " cm" << endl;
+                break;
+            case 3:
+                convertedValue = userInput * 0.3048;
+                cout << "Converted value: " << convertedValue << " meters" << endl;
+                break;
+            case 4:
+                convertedValue = userInput / 0.3048;
+                cout << "Converted value: " << convertedValue << " feet" << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+                break;
+        }
+
+        cout << "Do you want to convert another value? (yes/no): ";
+        cin >> continueChoice;
+
+    } while (continueChoice == "yes");
 
     return 0;
 }
-
