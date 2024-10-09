@@ -1,66 +1,65 @@
 
 START
 
-  SET total_mpg = 0.0
-  SET count = 0
+  SET base_cost = 5.00
+  SET additional_cost_per_100g = 2.00
+  SET max_weight = 1000.0
 
-  WHILE TRUE DO
-    PROMPT "Enter the gallons used (-1 to end):"
-    READ gallons
+  PROMPT "Enter the weight of the parcel in grams (up to 1000g):"
+  READ weight
 
-    IF gallons == -1 THEN
-      BREAK // Exit the loop if gallons is -1
+  IF weight <= 0 THEN
+    PRINT "Invalid weight. Please enter a positive value."
+  ELSE IF weight > max_weight THEN
+    PRINT "Weight exceeds the maximum limit of 1000g."
+  ELSE
+    SET total_cost = base_cost // Start with base cost
+
+    IF weight > 300 THEN
+      // Calculate additional weight over 300g
+      SET additional_weight = weight - 300
+      // Calculate the number of 100g increments, rounding up
+      SET increments = CEIL(additional_weight / 100)
+      total_cost = total_cost + (increments * additional_cost_per_100g)
     ENDIF
 
-    PROMPT "Enter the miles driven:"
-    READ miles
-
-    // Calculate miles per gallon
-    mpg = miles / gallons
-    total_mpg = total_mpg + mpg // Accumulate total MPG
-    count = count + 1 // Increment count
-
-    PRINT "The miles/gallon for this tank was ", mpg
-  ENDWHILE
-
-  IF count > 0 THEN
-    PRINT "The overall average miles/gallon was ", total_mpg / count
-  ELSE
-    PRINT "No data to calculate average."
+    PRINT "The cost of sending the parcel is: P", total_cost
   ENDIF
 
 END
 
 
+
 #include <iostream>
-#include <iomanip>
+#include <cmath> // For ceil function
 
 using namespace std;
 
 int main() {
-    double gallons, miles, total_mpg = 0.0;
-    int count = 0;
+    double weight;
+    const double base_cost = 5.00; // Cost for the first 300g
+    const double additional_cost_per_100g = 2.00; // Cost for each additional 100g
+    const double max_weight = 1000.0; // Maximum weight limit
 
-    while (true) {
-        cout << "Enter the gallons used (-1 to end): ";
-        cin >> gallons;
-        
-        if (gallons == -1) break;
+    cout << "Enter the weight of the parcel in grams (up to 1000g): ";
+    cin >> weight;
 
-        cout << "Enter the miles driven: ";
-        cin >> miles;
-
-        double mpg = miles / gallons; // Calculate miles per gallon
-        total_mpg += mpg; // Accumulate total MPG
-        count++; // Count the number of tankfuls
-
-        cout << "The miles/gallon for this tank was " << fixed << setprecision(6) << mpg << endl;
-    }
-
-    if (count > 0) {
-        cout << "The overall average miles/gallon was " << fixed << setprecision(6) << (total_mpg / count) << endl;
+    if (weight <= 0) {
+        cout << "Invalid weight. Please enter a positive value." << endl;
+    } else if (weight > max_weight) {
+        cout << "Weight exceeds the maximum limit of 1000g." << endl;
     } else {
-        cout << "No data to calculate average." << endl;
+        double total_cost = base_cost; // Start with the base cost
+
+        if (weight > 300) {
+            // Calculate additional weight over 300g
+            double additional_weight = weight - 300;
+            // Calculate the number of 100g increments, rounding up
+            int increments = static_cast<int>(ceil(additional_weight / 100));
+            total_cost += increments * additional_cost_per_100g;
+        }
+
+        cout << "The cost of sending the parcel is: P" << total_cost << endl;
     }
 
     return 0;
