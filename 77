@@ -1,78 +1,68 @@
 
 START
 
+  SET total_mpg = 0.0
+  SET count = 0
+
   WHILE TRUE DO
-    PROMPT "Enter account number (-1 to end):"
-    READ account_number
+    PROMPT "Enter the gallons used (-1 to end):"
+    READ gallons
 
-    IF account_number == -1 THEN
-      BREAK // Exit the loop if account number is -1
+    IF gallons == -1 THEN
+      BREAK // Exit the loop if gallons is -1
     ENDIF
 
-    PROMPT "Enter beginning balance:"
-    READ beginning_balance
+    PROMPT "Enter the miles driven:"
+    READ miles
 
-    PROMPT "Enter total charges:"
-    READ total_charges
+    // Calculate miles per gallon
+    mpg = miles / gallons
+    total_mpg = total_mpg + mpg // Accumulate total MPG
+    count = count + 1 // Increment count
 
-    PROMPT "Enter total credits:"
-    READ total_credits
-
-    PROMPT "Enter credit limit:"
-    READ credit_limit
-
-    // Calculate new balance
-    new_balance = beginning_balance + total_charges - total_credits
-
-    // Check if the new balance exceeds the credit limit
-    IF new_balance > credit_limit THEN
-      PRINT "Account: ", account_number
-      PRINT "Credit limit: ", credit_limit
-      PRINT "Balance: ", new_balance
-      PRINT "Credit limit exceeded."
-    ENDIF
+    PRINT "The miles/gallon for this tank was ", mpg
   ENDWHILE
 
-  PRINT "Program ends."
+  IF count > 0 THEN
+    PRINT "The overall average miles/gallon was ", total_mpg / count
+  ELSE
+    PRINT "No data to calculate average."
+  ENDIF
+
 END
 
 
-
-cpp
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
 
 int main() {
-    int account_number;
-    
+    double gallons, miles, total_mpg = 0.0;
+    int count = 0;
+
     while (true) {
-        cout << "Enter account number (-1 to end): ";
-        cin >> account_number;
-
-        if (account_number == -1) break;
-
-        double beginning_balance, total_charges, total_credits, credit_limit;
-        cout << "Enter beginning balance: ";
-        cin >> beginning_balance;
-        cout << "Enter total charges: ";
-        cin >> total_charges;
-        cout << "Enter total credits: ";
-        cin >> total_credits;
-        cout << "Enter credit limit: ";
-        cin >> credit_limit;
-
-        double new_balance = beginning_balance + total_charges - total_credits;
+        cout << "Enter the gallons used (-1 to end): ";
+        cin >> gallons;
         
-        if (new_balance > credit_limit) {
-            cout << "Account: " << account_number << endl;
-            cout << "Credit limit: " << fixed << setprecision(2) << credit_limit << endl;
-            cout << "Balance: " << fixed << setprecision(2) << new_balance << endl;
-            cout << "Credit limit exceeded." << endl;
-        }
+        if (gallons == -1) break;
+
+        cout << "Enter the miles driven: ";
+        cin >> miles;
+
+        double mpg = miles / gallons; // Calculate miles per gallon
+        total_mpg += mpg; // Accumulate total MPG
+        count++; // Count the number of tankfuls
+
+        cout << "The miles/gallon for this tank was " << fixed << setprecision(6) << mpg << endl;
     }
 
-    cout << "Program ends." << endl;
+    if (count > 0) {
+        cout << "The overall average miles/gallon was " << fixed << setprecision(6) << (total_mpg / count) << endl;
+    } else {
+        cout << "No data to calculate average." << endl;
+    }
+
     return 0;
 }
+
