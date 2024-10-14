@@ -10,5 +10,5 @@ int main() {
         }
     }
     cout << endl; // Move to a new line after printing the sequence
-    return 0; // Indicate that the program ended successfully
+    return 0; 
 }
