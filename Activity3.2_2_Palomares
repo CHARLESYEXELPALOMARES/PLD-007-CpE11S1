@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double principal = 1000.00; // Initial investment
+    double rate = 0.05; // Annual interest rate (5%)
+    int years = 10; // Number of years
+
+    // Loop through each year
+    for (int n = 1; n <= years; n++) {
+        double amount = principal; // Start with the principal amount
+
+        // Calculate (1 + rate)^n manually
+        for (int i = 1; i <= n; i++) {
+            amount *= (1 + rate); // Multiply by (1 + rate) for each year
+        }
+
+        // Output the year and the amount
+        cout << "Year " << n << ": $" << amount << endl;
+    }
+
+    return 0; // Indicate that the program ended successfully
+}
