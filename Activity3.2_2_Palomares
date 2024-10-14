@@ -19,5 +19,5 @@ int main() {
         cout << "Year " << n << ": $" << amount << endl;
     }
 
-    return 0; // Indicate that the program ended successfully
+    return 0; 
 }
