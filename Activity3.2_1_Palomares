@@ -11,5 +11,5 @@ int main() {
 
     // Output the result
     cout << "The sum of even integers from 2 to 100 is: " << sum << endl;
-    return 0; // Indicate that the program ended successfully
+    return 0; 
 }
