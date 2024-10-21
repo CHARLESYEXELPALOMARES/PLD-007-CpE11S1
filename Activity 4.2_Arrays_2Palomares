@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int RESPONSE_SIZE = 40;
+    int responses[RESPONSE_SIZE] = { 1, 2, 6, 4, 8, 5, 9, 7, 8, 10, 1, 6, 3, 8, 6, 10, 3, 8, 2, 7, 6, 5, 7, 6, 8, 6, 7, 5, 6, 6, 5, 6, 7, 5, 6, 4, 8, 6, 8, 10};
+    
+    int count[10] = {0};
+
+    for (int i = 0; i < RESPONSE_SIZE; ++i) {
+        count[responses[i] - 1]++;
+    }
+
+    cout << "Response  |   Frequency" << endl;
+    for (int i = 0; i < 10; ++i) {
+        cout << "    " << i + 1 << "            " << count[i] << endl;
+    }
+
+    return 0;
+}
