@@ -14,7 +14,7 @@ int main() {
     Chessboard[0][7] = 'R'; // Rook
     
     for (int i = 0; i < 8; i++) {
-        board[1][i] = 'P'; // Pawn
+        Chessboard[1][i] = 'P'; // Pawn
     }
 
     Chessboard[7][0] = 'r'; // Rook
@@ -27,12 +27,12 @@ int main() {
     Chessboard[7][7] = 'r'; // Rook
 
     for (int i = 0; i < 8; i++) {
-        board[6][i] = 'p'; // Pawn
+        Chessboard[6][i] = 'p'; // Pawn
     }
 
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
-            cout << board[row][col] << ' '; 
+            cout << Chessboard[row][col] << ' '; 
         }
         cout << endl; 
     }
