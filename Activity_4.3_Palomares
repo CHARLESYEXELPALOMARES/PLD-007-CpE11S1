@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const char* days[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    
+    
+    int dayNumber;
+    cout << "Enter a number (0-6): ";
+    cin >> dayNumber;
+
+    
+    if (dayNumber >= 0 && dayNumber < 7) {
+        cout << days[dayNumber] << endl; // Print the corresponding day
+    } else {
+        cout << "Error, no such day." << endl; // Print error message
+    }
+
+    return 0;
+}
