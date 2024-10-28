@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char Chessboard[8][8] = { ' ' }; 
+
+    Chessboard[0][0] = 'R'; // Rook
+    Chessboard[0][1] = 'N'; // Knight
+    Chessboard[0][2] = 'B'; // Bishop
+    Chessboard[0][3] = 'Q'; // Queen
+    Chessboard[0][4] = 'K'; // King
+    Chessboard[0][5] = 'B'; // Bishop
+    Chessboard[0][6] = 'N'; // Knight
+    Chessboard[0][7] = 'R'; // Rook
+    
+    for (int i = 0; i < 8; i++) {
+        board[1][i] = 'P'; // Pawn
+    }
+
+    Chessboard[7][0] = 'r'; // Rook
+    Chessboard[7][1] = 'n'; // Knight
+    Chessboard[7][2] = 'b'; // Bishop
+    Chessboard[7][3] = 'q'; // Queen
+    Chessboard[7][4] = 'k'; // King
+    Chessboard[7][5] = 'b'; // Bishop
+    Chessboard[7][6] = 'n'; // Knight
+    Chessboard[7][7] = 'r'; // Rook
+
+    for (int i = 0; i < 8; i++) {
+        board[6][i] = 'p'; // Pawn
+    }
+
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 8; col++) {
+            cout << board[row][col] << ' '; 
+        }
+        cout << endl; 
+    }
+
+    return 0;
+}
