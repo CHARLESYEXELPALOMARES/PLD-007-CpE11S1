@@ -1,27 +1,68 @@
-int islower( int ch ); It returns a true if ch is a lowercase letter and 0 otherwise.
+#include <iostream>
+#include <cctype>
 
-int isupper( int ch ); It returns a true value if ch is a uppercase and 0 otherwise.
+int main() {
+    char inputChar;
 
-int tolower( int ch ); This function converts uppercase letter into lowercase letter.
+    std::cout << "Enter a character: ";
+    std::cin >> inputChar;
 
-int toupper( int ch ); This function converts lowercase letter into uppercase letter.
+    std::cout << "Testing character: " << inputChar << std::endl;
 
-int isblank( int ch ); This function checks whether ch is a blank character or not.
+    if (islower(inputChar)) {
+        std::cout << "It is a lowercase letter." << std::endl;
+    } else {
+        std::cout << "It is not a lowercase letter." << std::endl;
+    }
 
-int isdigit( int ch ); This function checks whether ch is a digit or not.
+    if (isupper(inputChar)) {
+        std::cout << "It is an uppercase letter." << std::endl;
+    } else {
+        std::cout << "It is not an uppercase letter." << std::endl;
+    }
 
-int isalpha (int ch ); This function checks whether ch is a letter or not.
+    std::cout << "Lowercase version: " << (char)tolower(inputChar) << std::endl;
+    std::cout << "Uppercase version: " << (char)toupper(inputChar) << std::endl;
 
-int isalnum( int ch ); This function returns a 1 if ch is a digit or a letter and 0 otherwise.
+    if (isblank(inputChar)) {
+        std::cout << "It is a blank character." << std::endl;
+    }
 
-int isxdigit( int ch ); This function checks if ch is a hexadecimal digit or not.
+    if (isdigit(inputChar)) {
+        std::cout << "It is a digit." << std::endl;
+    }
 
-int isspace( int ch ); This function checks if ch is a whitespace character or not.
+    if (isalpha(inputChar)) {
+        std::cout << "It is a letter." << std::endl;
+    }
 
-int isgraph( int ch ); This function checks if ch is a printing character other than a space or not.
+    if (isalnum(inputChar)) {
+        std::cout << "It is a letter or a digit." << std::endl;
+    }
 
-int iscntrl( int ch ); This function checks if ch is a control character or not
+    if (isxdigit(inputChar)) {
+        std::cout << "It is a hexadecimal digit." << std::endl;
+    }
 
-int isprint( int ch ); This function checks if ch is a printing character including a space or not.
+    if (isspace(inputChar)) {
+        std::cout << "It is a whitespace character." << std::endl;
+    }
 
-int ispunct( int ch ); This function checks if ch is a printing character other than a digit, a space, a letter or not
+    if (isgraph(inputChar)) {
+        std::cout << "It is a printing character (not a space)." << std::endl;
+    }
+
+    if (iscntrl(inputChar)) {
+        std::cout << "It is a control character." << std::endl;
+    }
+
+    if (isprint(inputChar)) {
+        std::cout << "It is a printable character." << std::endl;
+    }
+
+    if (ispunct(inputChar)) {
+        std::cout << "It is a punctuation character." << std::endl;
+    }
+
+    return 0;
+}
