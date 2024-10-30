@@ -1,25 +1,32 @@
 #include <iostream>
-#include <cctype>
+#include <cctype> 
 
 int main() {
     char characters[] = {'p', 'P', '5', '!', 'D', 'd', '8', '&', 'u', '7', '$', 'L'};
-    
-    for (char character : characters) {
-        // Check for lowercase letters
-        std::cout << character << (islower(character) ? " is a lowercase letter\n" : " is not a lowercase letter\n");
-        
-        // Check for uppercase letters
-        std::cout << character << (isupper(character) ? " is an uppercase letter\n" : " is not an uppercase letter\n");
-        
-        // Convert and display case conversions
-        if (islower(character)) {
-            std::cout << character << " converted to uppercase is " << (char)toupper(character) << "\n";
-        } else if (isupper(character)) {
-            std::cout << character << " converted to lowercase is " << (char)tolower(character) << "\n";
+    const int size = sizeof(characters) / sizeof(characters[0]); // Calculate the size of the array
+
+    // Check for lowercase and uppercase letters
+    std::cout << "According to islower:\n";
+    for (int i = 0; i < size; i++) {
+        std::cout << characters[i] << (islower(characters[i]) ? " is a lowercase letter\n" : " is not a lowercase letter\n");
+    }
+
+    std::cout << "\nAccording to isupper:\n";
+    for (int i = 0; i < size; i++) {
+        std::cout << characters[i] << (isupper(characters[i]) ? " is an uppercase letter\n" : " is not an uppercase letter\n");
+    }
+
+    // Convert and display case conversions
+    std::cout << "\nCase conversions:\n";
+    for (int i = 0; i < size; i++) {
+        if (islower(characters[i])) {
+            std::cout << characters[i] << " converted to uppercase is " << (char)toupper(characters[i]) << "\n";
+        } else if (isupper(characters[i])) {
+            std::cout << characters[i] << " converted to lowercase is " << (char)tolower(characters[i]) << "\n";
         } else {
-            // If not a letter, just display it
-            std::cout << character << " converted to uppercase is " << character << "\n";
-            std::cout << character << " converted to lowercase is " << character << "\n";
+            // Non-letter characters remain unchanged
+            std::cout << characters[i] << " converted to uppercase is " << characters[i] << "\n";
+            std::cout << characters[i] << " converted to lowercase is " << characters[i] << "\n";
         }
     }
 
