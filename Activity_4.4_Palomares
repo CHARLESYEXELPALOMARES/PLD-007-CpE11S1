@@ -3,33 +3,19 @@
 
 int main() {
     char characters[] = {'p', 'P', '5', '!', 'D', 'd', '8', '&', 'u', '7', '$', 'L'};
-    int size = sizeof(characters) / sizeof(characters[0]);
-
-    for (int i = 0; i < size; i++) {
-        char ch = characters[i];
-
+    
+    for (char character : characters) {
         // Check for lowercase
-        if (islower(ch)) {
-            std::cout << ch << " is a lowercase letter\n";
-        } else {
-            std::cout << ch << " is not a lowercase letter\n";
-        }
-
+        std::cout << character << (islower(character) ? " is a lowercase letter\n" : " is not a lowercase letter\n");
+        
         // Check for uppercase
-        if (isupper(ch)) {
-            std::cout << ch << " is an uppercase letter\n";
-        } else {
-            std::cout << ch << " is not an uppercase letter\n";
-        }
-
-        // Convert to uppercase if it's a lowercase letter
-        if (islower(ch)) {
-            std::cout << ch << " converted to uppercase is " << (char)toupper(ch) << "\n";
-        }
-
-        // Convert to lowercase if it's an uppercase letter
-        if (isupper(ch)) {
-            std::cout << ch << " converted to lowercase is " << (char)tolower(ch) << "\n";
+        std::cout << character << (isupper(character) ? " is an uppercase letter\n" : " is not an uppercase letter\n");
+        
+        // Convert and display case conversions
+        if (islower(character)) {
+            std::cout << character << " converted to uppercase is " << (char)toupper(character) << "\n";
+        } else if (isupper(character)) {
+            std::cout << character << " converted to lowercase is " << (char)tolower(character) << "\n";
         }
     }
 
