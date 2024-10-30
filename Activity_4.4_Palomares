@@ -1,14 +1,14 @@
 #include <iostream>
-#include <cctype> 
+#include <cctype>
 
 int main() {
     char characters[] = {'p', 'P', '5', '!', 'D', 'd', '8', '&', 'u', '7', '$', 'L'};
     
     for (char character : characters) {
-        // Check for lowercase
+        // Check for lowercase letters
         std::cout << character << (islower(character) ? " is a lowercase letter\n" : " is not a lowercase letter\n");
         
-        // Check for uppercase
+        // Check for uppercase letters
         std::cout << character << (isupper(character) ? " is an uppercase letter\n" : " is not an uppercase letter\n");
         
         // Convert and display case conversions
@@ -16,6 +16,10 @@ int main() {
             std::cout << character << " converted to uppercase is " << (char)toupper(character) << "\n";
         } else if (isupper(character)) {
             std::cout << character << " converted to lowercase is " << (char)tolower(character) << "\n";
+        } else {
+            // If not a letter, just display it
+            std::cout << character << " converted to uppercase is " << character << "\n";
+            std::cout << character << " converted to lowercase is " << character << "\n";
         }
     }
 
