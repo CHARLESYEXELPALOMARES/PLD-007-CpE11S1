@@ -1,27 +1,38 @@
+
 #include <iostream>
 #include <cctype> 
 
 int main() {
-    // Check lowercase
-    std::cout << "According to islower:" << std::endl;
-    std::cout << "p is " << (islower('p') ? "" : "not ") << "a lowercase letter" << std::endl;
-    std::cout << "P is " << (islower('P') ? "" : "not ") << "a lowercase letter" << std::endl;
-    std::cout << "5 is " << (islower('5') ? "" : "not ") << "a lowercase letter" << std::endl;
-    std::cout << "! is " << (islower('!') ? "" : "not ") << "a lowercase letter" << std::endl;
+    char characters[] = {'p', 'P', '5', '!', 'D', 'd', '8', '&', 'u', '7', '$', 'L'};
+    int size = sizeof(characters) / sizeof(characters[0]);
 
-    // Check uppercase
-    std::cout << "\nAccording to isupper:" << std::endl;
-    std::cout << "D is " << (isupper('D') ? "" : "not ") << "an uppercase letter" << std::endl;
-    std::cout << "d is " << (isupper('d') ? "" : "not ") << "an uppercase letter" << std::endl;
-    std::cout << "8 is " << (isupper('8') ? "" : "not ") << "an uppercase letter" << std::endl;
-    std::cout << "& is " << (isupper('&') ? "" : "not ") << "an uppercase letter" << std::endl;
+    for (int i = 0; i < size; i++) {
+        char ch = characters[i];
 
-    // Conversions
-    std::cout << "\nConversions:" << std::endl;
-    std::cout << "u converted to uppercase is " << static_cast<char>(toupper('u')) << std::endl;
-    std::cout << "7 converted to uppercase is " << static_cast<char>(toupper('7')) << std::endl;
-    std::cout << "$ converted to uppercase is " << static_cast<char>(toupper('$')) << std::endl;
-    std::cout << "L converted to lowercase is " << static_cast<char>(tolower('L')) << std::endl;
+        // Check for lowercase
+        if (islower(ch)) {
+            std::cout << ch << " is a lowercase letter\n";
+        } else {
+            std::cout << ch << " is not a lowercase letter\n";
+        }
+
+        // Check for uppercase
+        if (isupper(ch)) {
+            std::cout << ch << " is an uppercase letter\n";
+        } else {
+            std::cout << ch << " is not an uppercase letter\n";
+        }
+
+        // Convert to uppercase if it's a lowercase letter
+        if (islower(ch)) {
+            std::cout << ch << " converted to uppercase is " << (char)toupper(ch) << "\n";
+        }
+
+        // Convert to lowercase if it's an uppercase letter
+        if (isupper(ch)) {
+            std::cout << ch << " converted to lowercase is " << (char)tolower(ch) << "\n";
+        }
+    }
 
     return 0;
 }
