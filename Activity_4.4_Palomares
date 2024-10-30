@@ -4,7 +4,7 @@ using namespace std;
 
 int main() 
 {
-        char lowerChars[] = {'p', 'P', '5', '!'};
+    char lowerChars[] = {'p', 'P', '5', '!'};
     char upperChars[] = {'D', 'd', '8', '&'};
     char convertUpper[] = {'u', '7', '$', 'L'};
     char convertLower[] = {'u', '7', '$', 'L'};
