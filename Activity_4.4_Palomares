@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cctype> 
+
+int main() {
+    // Check lowercase
+    std::cout << "According to islower:" << std::endl;
+    std::cout << "p is " << (islower('p') ? "" : "not ") << "a lowercase letter" << std::endl;
+    std::cout << "P is " << (islower('P') ? "" : "not ") << "a lowercase letter" << std::endl;
+    std::cout << "5 is " << (islower('5') ? "" : "not ") << "a lowercase letter" << std::endl;
+    std::cout << "! is " << (islower('!') ? "" : "not ") << "a lowercase letter" << std::endl;
+
+    // Check uppercase
+    std::cout << "\nAccording to isupper:" << std::endl;
+    std::cout << "D is " << (isupper('D') ? "" : "not ") << "an uppercase letter" << std::endl;
+    std::cout << "d is " << (isupper('d') ? "" : "not ") << "an uppercase letter" << std::endl;
+    std::cout << "8 is " << (isupper('8') ? "" : "not ") << "an uppercase letter" << std::endl;
+    std::cout << "& is " << (isupper('&') ? "" : "not ") << "an uppercase letter" << std::endl;
+
+    // Conversions
+    std::cout << "\nConversions:" << std::endl;
+    std::cout << "u converted to uppercase is " << static_cast<char>(toupper('u')) << std::endl;
+    std::cout << "7 converted to uppercase is " << static_cast<char>(toupper('7')) << std::endl;
+    std::cout << "$ converted to uppercase is " << static_cast<char>(toupper('$')) << std::endl;
+    std::cout << "L converted to lowercase is " << static_cast<char>(tolower('L')) << std::endl;
+
+    return 0;
+}
