@@ -1,67 +1,69 @@
 #include <iostream>
 #include <cctype>
+using namespace std;
 
-int main() {
+int main() 
+{
     char inputChar;
 
-    std::cout << "Enter a character: ";
-    std::cin >> inputChar;
+    cout << "Enter a character: ";
+    cin >> inputChar;
 
-    std::cout << "Testing character: " << inputChar << std::endl;
+    cout << "Testing character: " << inputChar << endl;
 
     if (islower(inputChar)) {
-        std::cout << "It is a lowercase letter." << std::endl;
+        std::cout << "It is a lowercase letter." << endl;
     } else {
-        std::cout << "It is not a lowercase letter." << std::endl;
+        std::cout << "It is not a lowercase letter." << endl;
     }
 
     if (isupper(inputChar)) {
-        std::cout << "It is an uppercase letter." << std::endl;
+        std::cout << "It is an uppercase letter." << endl;
     } else {
-        std::cout << "It is not an uppercase letter." << std::endl;
+        std::cout << "It is not an uppercase letter." << endl;
     }
 
-    std::cout << "Lowercase version: " << (char)tolower(inputChar) << std::endl;
-    std::cout << "Uppercase version: " << (char)toupper(inputChar) << std::endl;
+    cout << "Lowercase version: " << (char)tolower(inputChar) << endl;
+    cout << "Uppercase version: " << (char)toupper(inputChar) << endl;
 
     if (isblank(inputChar)) {
-        std::cout << "It is a blank character." << std::endl;
+        cout << "It is a blank character." << endl;
     }
 
     if (isdigit(inputChar)) {
-        std::cout << "It is a digit." << std::endl;
+        cout << "It is a digit." << endl;
     }
 
     if (isalpha(inputChar)) {
-        std::cout << "It is a letter." << std::endl;
+        cout << "It is a letter." << endl;
     }
 
     if (isalnum(inputChar)) {
-        std::cout << "It is a letter or a digit." << std::endl;
+        cout << "It is a letter or a digit." << endl;
     }
 
     if (isxdigit(inputChar)) {
-        std::cout << "It is a hexadecimal digit." << std::endl;
+        cout << "It is a hexadecimal digit." << endl;
     }
 
     if (isspace(inputChar)) {
-        std::cout << "It is a whitespace character." << std::endl;
+        cout << "It is a whitespace character." << endl;
     }
 
     if (isgraph(inputChar)) {
-        std::cout << "It is a printing character (not a space)." << std::endl;
+        cout << "It is a printing character (not a space)." << endl;
     }
 
     if (iscntrl(inputChar)) {
-        std::cout << "It is a control character." << std::endl;
+        cout << "It is a control character." << endl;
     }
 
     if (isprint(inputChar)) {
-        std::cout << "It is a printable character." << std::endl;
+        cout << "It is a printable character." << endl;
     }
 
     if (ispunct(inputChar)) {
-        std::cout << "It is a punctuation character." << std::endl;
+        cout << "It is a punctuation character." << endl;
     }
 
     return 0;
