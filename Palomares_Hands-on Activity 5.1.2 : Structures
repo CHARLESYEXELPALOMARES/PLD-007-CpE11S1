@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+// Function to determine if n is a multiple of x
+bool multiple(int n, int x) {
+    if (x == 0) {
+        cout << "Undefined (cannot divide by zero)" << endl;
+        return false; // Return false for undefined case
+    }
+    return (n % x == 0); // Check if n is a multiple of x
+}
+
+int main() {
+    int n, x;
+    cout << "Enter an integer: ";
+    cin >> n;
+    cout << "Enter the value of x: ";
+    cin >> x;
+
+    // Call the multiple function and display the result
+    if (multiple(n, x)) {
+        cout << n << " is a multiple of " << x << endl;
+    } else {
+        cout << n << " is not a multiple of " << x << endl;
+    }
+
+    return 0;
+}
