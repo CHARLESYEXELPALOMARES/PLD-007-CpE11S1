@@ -1,0 +1,34 @@
+#include <iostream>
+#include <bitset>
+
+using namespace std;
+
+// Function to reverse the bits of an unsigned integer
+unsigned int reverseBits(unsigned int n) {
+    unsigned int result = 0;
+    for (int i = 0; i < 32; ++i) {
+        result |= (n & 1) << (31 - i); // Get the last bit and shift it to its new position
+        n >>= 1; // Shift n to the right
+    }
+    return result;
+}
+
+// Function to print the bits of an unsigned integer
+void printBits(unsigned int n) {
+    cout << bitset<32>(n) << endl; // Print the bits in 32-bit format
+}
+
+int main() {
+    unsigned int n;
+    cout << "Enter an unsigned integer: ";
+    cin >> n;
+
+    cout << "Bits before reversal: ";
+    printBits(n);
+
+    unsigned int reversed = reverseBits(n);
+    cout << "Bits after reversal: ";
+    printBits(reversed);
+
+    return 0;
+}
