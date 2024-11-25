@@ -1,22 +1,30 @@
 #include <iostream>
 using namespace std;
 
-const float exchangeRate = 50;  // Example exchange rate
+const float exchangeRate = 50; // Example exchange rate
 
-float dollarsToPesos(float d) {
-    return d * exchangeRate;
+// Function to convert dollars to pesos
+float dollarsToPesos(float dollars) {
+    return dollars * exchangeRate; // Convert dollars to pesos
 }
 
-float pesosToDollars(float p) {
-    return p / exchangeRate;
+// Function to convert pesos to dollars
+float pesosToDollars(float pesos) {
+    return pesos / exchangeRate; // Convert pesos to dollars
 }
 
 int main() {
     float dollars, pesos;
-    cout << "Enter amount in dollars: ";
-    cin >> dollars;
-    cout << "Pesos: " << dollarsToPesos(dollars) << endl;
 
+    // Convert dollars to pesos
+    cout << "Enter amount in dollars: ";
+    cin >> dollars; // Read input in dollars
+    cout << "Pesos: " << dollarsToPesos(dollars) << endl; // Display conversion
+
+    // Convert pesos to dollars
     cout << "Enter amount in pesos: ";
-    cin >> pesos;
-    cout
+    cin >> pesos; // Read input in pesos
+    cout << "Dollars: " << pesosToDollars(pesos) << endl; // Display conversion
+
+    return 0; // End of program
+}
